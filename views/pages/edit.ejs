@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New User</title>
+    <link rel="stylesheet" href="/index.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <%-include('../partials/Header'); %>
+    </header>
+
+    <div class="fromHolder">
+        <div>
+            <label for="">Name</label>
+            <input type="text" name="name" class="inputField" id="namebtn"> <br>
+            <label for="">Email</label>
+            <input type="text" name="email" class="inputField" id="emailbtn"> <br>
+            <input class="saveButton" type="button" value="Update" onclick=Update()>
+        </div>
+    </div>
+
+    <script>
+      // let pos;
+        let namebtn;
+        let emailbtn;
+        let id = 0;
+
+       async function FindData()
+        {
+            if (localStorage.getItem('edit_id')!==null)
+            {
+                 id = localStorage.getItem('edit_id');
+            }else
+            {
+                return
+            }
+                let data = [];
+                data = await axios.get(`http://localhost:5700/finduser/${id}`);
+                
+                data = data.data;
+                
+                console.log(data);
+
+                namebtn = document.getElementById('namebtn');
+                emailbtn = document.getElementById('emailbtn');
+                namebtn.value = data.name;
+                emailbtn.value = data.email;
+
+            
+
+        }
+        FindData();
+
+        async function Update()
+        {
+           let result = await axios(
+            {
+                method: 'put',
+                url :`http://localhost:5700/edit/${id}`,
+                data: 
+                {
+                    name: namebtn.value,
+                    email: emailbtn.value
+                }
+            });
+            console.log("update called");
+            window.location.href='/';
+        }
+    </script>
+</body>
+
+</html>

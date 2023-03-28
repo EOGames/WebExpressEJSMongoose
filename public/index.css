@@ -1,0 +1,95 @@
+body{
+    margin: 0px;
+    background-color:#550000;
+}
+
+.topbar
+{
+    background-color: #801515;
+    text-align: center;   
+    padding: 2.5vh;
+}
+
+a
+{
+    text-decoration: none;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    padding: 20px;
+}
+
+a:hover
+{
+    color: red;
+}
+.saveButton
+{
+    background-color: coral;
+    border: none;
+    box-shadow: 2px 2px 5px black;
+    margin:10% 35%;
+    width: 45%;
+    height: 5vh;
+}
+
+.fromHolder
+{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    margin-top: 20%;
+}
+
+.inputField
+{
+    padding: 1vh;
+    margin: 10px;
+}
+
+label
+{
+    color: wheat;
+    text-shadow: 2px 2px 5px black;
+}
+/* .tr
+{
+    border: 1px dotted #ffffff;
+} */
+
+.th
+{
+    color: #ffffff;
+    text-shadow: 2px 2px 7px black;    
+}
+
+table
+{   
+    border: 1px dashed rgb(107, 107, 107);
+    text-align: center;
+    color: #FFAAAA;
+    text-shadow: 1px 1px 2px #000000;
+    padding: 15px;
+    margin-top: 2%;
+    
+}
+
+.editbtn
+{
+    background-color: skyblue;
+    border: none;
+    box-shadow: 2px 2px 5px black;
+}
+
+.deletebtn
+{
+    background-color: rgb(248, 149, 149);
+    border: none;
+    box-shadow: 2px 2px 5px black;
+}
+
+.data
+{
+    display: flex;
+    justify-content: center;
+}
